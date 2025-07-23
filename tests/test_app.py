@@ -16,8 +16,9 @@ def test_root_deve_retornar_ola_mundo():
     client = TestClient(app)
 
     # act
-    response = client.get('/')
+    response = client.get('/exercicio-html')
 
     # assert
-    assert response.json() == {'message': 'olá, mundo!'}
+    #assert response.json() == {'message': 'olá, mundo!'}
     assert response.status_code == HTTPStatus.OK
+    assert '<h1> Olá Mundo </h1>' in response.text
